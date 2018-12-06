@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MenuComponent should shallows correctly 1`] = `
+<styled.div>
+  <span />
+  <span />
+  <span />
+  <span />
+  <span />
+  <styled.ul>
+    <styled.li
+      key="0"
+    >
+      <Styled(NavLink)
+        elementCount={1}
+        to="/"
+      >
+        Home
+      </Styled(NavLink)>
+    </styled.li>
+    <styled.li
+      key="1"
+    >
+      <Styled(NavLink)
+        elementCount={2}
+        to="/favorites"
+      >
+        Favorites
+      </Styled(NavLink)>
+    </styled.li>
+    <styled.li
+      key="3"
+    >
+      <Styled(NavLink)
+        elementCount={3}
+        to="/contact"
+      >
+        Contact
+      </Styled(NavLink)>
+    </styled.li>
+  </styled.ul>
+</styled.div>
+`;
