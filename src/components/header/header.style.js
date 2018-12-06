@@ -58,7 +58,7 @@ export const HamburgerButton = styled.div`
   margin: 14px 10px;
   position: relative;
   transform: rotate(0deg);
-  transition: .5s ease-in-out;
+  transition: .25s ease-in-out;
   width: 30px;
   z-index: 2;
   
@@ -98,16 +98,10 @@ const MenuOverlayDisplay = ifElse(
   always('none'),
 );
 
-const MenuColumWidth = ifElse(
-  prop('isOpened'),
-  always('100%'),
-  always('0'),
-);
-
 const Animation = keyframes`
   0% { width: 0; }
-  50% { width: 30% }
-  100% { width: 100% }
+  50% { width: 50%; }
+  100% { width: 100%; }
 `;
 
 export const MenuOverlay = styled.div`
