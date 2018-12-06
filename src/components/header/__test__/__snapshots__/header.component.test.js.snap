@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HeaderComponent should shallows correctly if state.isMenuOpened is false 1`] = `
+<styled.header>
+  <styled.div>
+    <Styled(Link)
+      to="/"
+    >
+      <logoIcon />
+    </Styled(Link)>
+    <styled.div
+      isOpened={false}
+      onClick={[Function]}
+    >
+      <span />
+      <span />
+      <span />
+    </styled.div>
+  </styled.div>
+</styled.header>
+`;
+
+exports[`HeaderComponent should shallows correctly if state.isMenuOpened is true 1`] = `
+<styled.header>
+  <styled.div>
+    <Styled(Link)
+      to="/"
+    >
+      <logoIcon />
+    </Styled(Link)>
+    <styled.div
+      isOpened={true}
+      onClick={[Function]}
+    >
+      <span />
+      <span />
+      <span />
+    </styled.div>
+    <MenuComponent />
+  </styled.div>
+</styled.header>
+`;
