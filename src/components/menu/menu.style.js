@@ -66,9 +66,21 @@ export const StyledMenuElement = styled.li`
 `;
 
 const MenuItemAnimation = keyframes`
-  0% { margin-left: -2000px; }
-  70% { margin-left: -20px; }
-  100% { margin-left: 0; }
+  0% { 
+      margin-left: -2000px;
+      opacity: 0; 
+   }
+  70% { 
+      margin-left: -100px;
+      opacity: 0;
+    }
+  90% {
+      opacity: 0.3;
+   }
+  100% { 
+      margin-left: 0;
+      opacity: 1;
+    }
 `;
 
 export const StyledMenuLink = styled(NavLink)`
