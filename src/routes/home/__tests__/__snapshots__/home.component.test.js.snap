@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HomeComponent should shallows correctly 1`] = `
+<Fragment>
+  <HeaderComponent />
+  <styled.div>
+    <styled.div>
+      This is react example gallery.
+    </styled.div>
+    <Styled(Link)
+      to="/cart"
+    >
+      <arrowIcon />
+       Go to main part issue
+    </Styled(Link)>
+  </styled.div>
+</Fragment>
+`;

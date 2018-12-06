@@ -7,7 +7,7 @@
     "axios": "^0.18.0",
     "babel-core": "6.26.0",
     "babel-eslint": "7.2.3",
-    "babel-jest": "20.0.3",
+    "babel-jest": "^23.6.0",
     "babel-loader": "7.1.2",
     "babel-preset-react-app": "^3.1.1",
     "babel-runtime": "6.26.0",
@@ -29,7 +29,7 @@
     "history": "^4.7.2",
     "html-webpack-plugin": "2.29.0",
     "immutable": "^3.8.2",
-    "jest": "20.0.4",
+    "jest": "^23.6.0",
     "object-assign": "4.1.1",
     "postcss-flexbugs-fixes": "3.2.0",
     "postcss-loader": "2.0.8",
@@ -90,7 +90,8 @@
       "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs)$"
     ],
     "moduleNameMapper": {
-      "^react-native$": "react-native-web"
+      "^react-native$": "react-native-web",
+      "^styles(.*)$": "<rootDir>/src/utils/styles/theme$1"
     },
     "moduleFileExtensions": [
       "web.js",
@@ -100,7 +101,23 @@
       "jsx",
       "node",
       "mjs"
-    ]
+    ],
+    "moduleDirectories": [
+      "node_modules",
+      "src",
+      "components",
+      "routes",
+      "utils",
+      "styles",
+      "styledElements",
+      "icons",
+      "config",
+      "modules"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "setupTestFrameworkScriptFile": "<rootDir>/src/setupTests.js"
   },
   "babel": {
     "presets": [
@@ -109,5 +126,10 @@
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "devDependencies": {
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.7.0",
+    "enzyme-to-json": "^3.3.5"
   }
 }
