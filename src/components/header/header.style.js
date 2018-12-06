@@ -1,5 +1,5 @@
-import styled, { css, keyframes } from 'styled-components';
-import * as RRD from 'react-router-dom';
+import styled, { css } from 'styled-components';
+import { Link } from 'react-router-dom';
 
 import { ifElse, prop, always } from 'ramda';
 
@@ -10,7 +10,7 @@ export const Header = styled.header`
   padding: 20px 0;
 `;
 
-export const LogoLink = styled(RRD.Link)`
+export const LogoLink = styled(Link)`
   display: inline-block;
   font-size: 0;
   margin: 17px 0;
@@ -22,20 +22,20 @@ export const LogoLink = styled(RRD.Link)`
 
 const HamburgerButtonOpenedStyle = css`
   &:nth-child(1) {
-      transform: rotate(45deg);
-      top: -3px;
       left: 8px;
+      top: -3px;
+      transform: rotate(45deg);
     }
     
     &:nth-child(2) {
-      width: 0;
       opacity: 0;
+      width: 0;
     }
     
     &:nth-child(3) {
-      transform: rotate(-45deg);
-      top: 18px;
       left: 8px;
+      top: 18px;
+      transform: rotate(-45deg);
     }
 `;
 
@@ -63,16 +63,17 @@ export const HamburgerButton = styled.div`
   z-index: 2;
   
   span {
-    display: block;
-    position: absolute;
-    height: 3px;
-    width: 100%;
     background: ${HamburgerButtonBackground};
     border-radius: 2px;
-    opacity: 1;
+    display: block;
+    height: 3px;
     left: 0;
+    opacity: 1;
+    position: absolute;
     transform: rotate(0deg);
     transition: .25s ease-in-out;
+    width: 100%;
+
     &:nth-child(1) {
       top: 0;
       transform-origin: left center;
@@ -89,43 +90,5 @@ export const HamburgerButton = styled.div`
     }
     
     ${HamburgerButtonOpened}
-  }
-`;
-
-const MenuOverlayDisplay = ifElse(
-  prop('isOpened'),
-  always('block'),
-  always('none'),
-);
-
-const Animation = keyframes`
-  0% { width: 0; }
-  50% { width: 50%; }
-  100% { width: 100%; }
-`;
-
-export const MenuOverlay = styled.div`
-  position: fixed;
-  display: ${MenuOverlayDisplay};
-  height: 100vh;
-  width: 100vw;
-  left:0;
-  top:0;
-  
-  span {
-    transition: width 10000ms ease-in-out;
-    display: inline-block;
-    position: relative;
-    width: 20%;
-    &:after {
-      background: ${Color.Black};
-      content: '';
-      display: block;
-      float: right;
-      height: 100vh;
-      transition: width 500ms ease-in-out;
-      width: 100%;
-      animation: ${Animation} 0.5s linear;
-    }
   }
 `;
