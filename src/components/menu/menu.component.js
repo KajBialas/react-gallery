@@ -32,11 +32,8 @@ class MenuComponent extends PureComponent {
   render() {
     return (
         <StyledMenuOverlay>
-          <span/>
-          <span/>
-          <span/>
-          <span/>
-          <span/>
+          <span/><span/><span/><span/><span/>
+
           <StyledMenuContent>
             {this.renderMenuContent()}
           </StyledMenuContent>

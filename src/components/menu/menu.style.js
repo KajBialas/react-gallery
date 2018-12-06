@@ -10,17 +10,16 @@ const BackgroundAnimation = keyframes`
 `;
 
 export const StyledMenuOverlay = styled.div`
-  position: fixed;
   display: block;
   height: 100vh;
+  left: 0;
+  position: fixed;
+  top: 0;
   width: 100vw;
-  left:0;
-  top:0;
-  
+
   span {
     display: inline-block;
     position: relative;
-    transition: width 10000ms ease-in-out;
     width: 20%;
     
     &:after {
@@ -30,32 +29,29 @@ export const StyledMenuOverlay = styled.div`
       display: block;
       float: right;
       height: 100vh;
-      transition: width 500ms ease-in-out;
       width: 100%;
     }
   }
 `;
 
 export const StyledMenuContent = styled.ul`
-    list-style-type: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 3;
-    height: 100%;
-    width: 700px;
-    padding: 0;
-    right: 0;
-    margin: auto;
     display: flex;
     flex-direction: column;
+    height: 100%;
     justify-content: center;
+    left: 0;
+    list-style-type: none;
+    margin: auto;
+    position: absolute;
+    top: 0;
     overflow: hidden;
+    padding: 0;
+    right: 0;
+    width: 700px;
+    z-index: 3;
 `;
 
-export const StyledMenuElement = styled.li`
-
-`;
+export const StyledMenuElement = styled.li``;
 
 const MenuItemAnimation = keyframes`
   0% { 
@@ -78,25 +74,25 @@ const MenuItemAnimation = keyframes`
 export const StyledMenuLink = styled(NavLink)`
   animation: ${MenuItemAnimation} ${props => 1.2 + props.elementCount / 7}s ease-in-out forwards;
   color: ${Color.White};
-  font-size: ${FontSize.XL};
-  width: 100%;
   display: block;
+  font-size: ${FontSize.XL};
   padding: 27px 0;
+  width: 100%;
   
   &:before{
     background-color: ${Color.White};
     content: '';
-    width: 0;
     display: inline-block;
     height: 1px;
     margin: 0 10px 9px 0;
     transition: width 500ms ease-in-out;
+    width: 0;
   }
   
   &:hover {
+  
     &:before {
       width: 100px;
     }
   }
-  
 `;

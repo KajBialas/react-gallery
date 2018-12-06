@@ -22,20 +22,20 @@ export const LogoLink = styled(Link)`
 
 const HamburgerButtonOpenedStyle = css`
   &:nth-child(1) {
-      transform: rotate(45deg);
-      top: -3px;
       left: 8px;
+      top: -3px;
+      transform: rotate(45deg);
     }
     
     &:nth-child(2) {
-      width: 0;
       opacity: 0;
+      width: 0;
     }
     
     &:nth-child(3) {
-      transform: rotate(-45deg);
-      top: 18px;
       left: 8px;
+      top: 18px;
+      transform: rotate(-45deg);
     }
 `;
 
@@ -63,16 +63,17 @@ export const HamburgerButton = styled.div`
   z-index: 2;
   
   span {
-    display: block;
-    position: absolute;
-    height: 3px;
-    width: 100%;
     background: ${HamburgerButtonBackground};
     border-radius: 2px;
-    opacity: 1;
+    display: block;
+    height: 3px;
     left: 0;
+    opacity: 1;
+    position: absolute;
     transform: rotate(0deg);
     transition: .25s ease-in-out;
+    width: 100%;
+
     &:nth-child(1) {
       top: 0;
       transform-origin: left center;
@@ -91,4 +92,3 @@ export const HamburgerButton = styled.div`
     ${HamburgerButtonOpened}
   }
 `;
-

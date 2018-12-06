@@ -17,7 +17,9 @@ class HeaderComponent extends PureComponent {
     isMenuOpened: false,
   };
 
-  handleOpenMenu = () => this.setState({isMenuOpened: !this.state.isMenuOpened});
+  handleOpenMenu = () => this.setState((prevState) => {
+    return {isMenuOpened: !prevState.isMenuOpened};
+  });
 
   renderMenu = () => this.state.isMenuOpened ? <Menu/> : null;
 
