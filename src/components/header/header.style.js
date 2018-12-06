@@ -1,5 +1,5 @@
-import styled, { css, keyframes } from 'styled-components';
-import * as RRD from 'react-router-dom';
+import styled, { css } from 'styled-components';
+import { Link } from 'react-router-dom';
 
 import { ifElse, prop, always } from 'ramda';
 
@@ -10,7 +10,7 @@ export const Header = styled.header`
   padding: 20px 0;
 `;
 
-export const LogoLink = styled(RRD.Link)`
+export const LogoLink = styled(Link)`
   display: inline-block;
   font-size: 0;
   margin: 17px 0;

@@ -1,15 +1,7 @@
-import styled, { css, keyframes } from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
-import { ifElse, prop, always } from 'ramda';
-
 import { Color, FontSize } from 'styles';
-
-const MenuOverlayDisplay = ifElse(
-  prop('isOpened'),
-  always('block'),
-  always('none'),
-);
 
 const BackgroundAnimation = keyframes`
   0% { width: 0; }
@@ -19,7 +11,7 @@ const BackgroundAnimation = keyframes`
 
 export const StyledMenuOverlay = styled.div`
   position: fixed;
-  display: ${MenuOverlayDisplay};
+  display: block;
   height: 100vh;
   width: 100vw;
   left:0;

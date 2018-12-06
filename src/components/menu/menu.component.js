@@ -30,10 +30,8 @@ class MenuComponent extends PureComponent {
   );
 
   render() {
-    const { isMenuOpened } = this.props;
-
     return (
-        <StyledMenuOverlay isOpened={isMenuOpened}>
+        <StyledMenuOverlay>
           <span/>
           <span/>
           <span/>
