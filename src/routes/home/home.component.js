@@ -1,4 +1,5 @@
 import React, { PureComponent, Fragment } from 'react';
+import PropTypes from 'prop-types';
 
 // Components
 import Header from 'components/header/header.component';
@@ -12,6 +13,10 @@ import ArrowIcon from 'icons/arrow.icon';
 import IssueIcon from 'icons/issue.icon';
 
 class HomeComponent extends PureComponent {
+  static defaultProps = {
+    photosRecords: [],
+  };
+
   componentDidMount(){
     console.log(this.props);
     this.props.photosRequest();
