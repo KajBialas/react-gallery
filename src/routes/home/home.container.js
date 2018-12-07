@@ -7,19 +7,19 @@ import HomeComponent from './home.component'
 import { HomeActions } from 'modules/home/home.redux';
 
 import {
-  selectAlbumsRecords,
+  selectRecords,
   selectLoadingStatus,
   selectErrorStatus,
 } from 'modules/home/home.selector';
 
 const mapStateToProps = createStructuredSelector({
-  albumsRecords: selectAlbumsRecords,
-  albumsLoading: selectLoadingStatus,
-  albumsError: selectErrorStatus
+  photosRecords: selectRecords,
+  photosLoading: selectLoadingStatus,
+  photosError: selectErrorStatus
 });
 
 export const mapDispatchToProps = (dispatch) => bindActionCreators({
-  albumsRequest: HomeActions.albumsRequest,
+  photosRequest: HomeActions.dataRequest,
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomeComponent);

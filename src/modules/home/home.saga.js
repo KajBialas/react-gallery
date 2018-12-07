@@ -3,21 +3,25 @@ import axios from 'axios';
 
 import { HomeTypes, HomeActions } from './home.redux';
 
-export function* albumsRequest() {
+export function* dataRequest() {
   try {
-    const albums = {records: []};
-    yield axios.get(`https://jsonplaceholder.typicode.com/albums`)
+    const apiData = {
+      records: [],
+    };
+
+    yield axios.get(`http://shibe.online/api/shibes?count=16`)
       .then(res => {
-        console.log('persons', albums, res.data)
-        albums.records = res.data;
-        console.log('persons', albums, res.data)
+        apiData.records = res;
       });
-    yield put(HomeActions.albumsRequestSuccess(albums));
+
+    console.log(apiData.records.data);
+
+    yield put(HomeActions.dataRequestSuccess(apiData.records.data));
   } catch (e) {
-    yield put(HomeActions.albumsRequestFailure(e));
+    yield put(HomeActions.dataRequestFailure(e));
   }
 }
 
 export default function* homeSaga() {
-  yield takeLatest(HomeTypes.ALBUMS_REQUEST, albumsRequest);
+  yield takeLatest(HomeTypes.DATA_REQUEST, dataRequest);
 }

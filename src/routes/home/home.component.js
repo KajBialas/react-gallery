@@ -14,10 +14,7 @@ import IssueIcon from 'icons/issue.icon';
 class HomeComponent extends PureComponent {
   componentDidMount(){
     console.log(this.props);
-  }
-
-  componentDidUpdate(){
-    console.log(this.props);
+    this.props.photosRequest();
   }
 
   render() {
@@ -28,6 +25,9 @@ class HomeComponent extends PureComponent {
           <Description>
             This is react example gallery.
           </Description>
+
+          {this.props.photosRecords.map((item) => <img src={item} />)}
+
         </Wrapper>
       </Fragment>
     );
