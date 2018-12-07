@@ -14,8 +14,6 @@ export function* dataRequest() {
         apiData.records = res;
       });
 
-    console.log(apiData.records.data);
-
     yield put(HomeActions.dataRequestSuccess(apiData.records.data));
   } catch (e) {
     yield put(HomeActions.dataRequestFailure(e));
