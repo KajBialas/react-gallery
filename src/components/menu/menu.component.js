@@ -23,7 +23,7 @@ class MenuComponent extends PureComponent {
 
   renderMenuContent = () => NAVIGATION_ITEMS.map((menuItem, index) =>
     <StyledMenuElement key={menuItem.id}>
-      <StyledMenuLink elementCount={index+1} to={menuItem.url}>
+      <StyledMenuLink count={index+1} to={menuItem.url}>
         {menuItem.name}
       </StyledMenuLink>
     </StyledMenuElement>

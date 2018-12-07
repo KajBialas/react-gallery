@@ -12,7 +12,7 @@ exports[`MenuComponent should shallows correctly 1`] = `
       key="0"
     >
       <Styled(NavLink)
-        elementCount={1}
+        count={1}
         to="/"
       >
         Home
@@ -22,7 +22,7 @@ exports[`MenuComponent should shallows correctly 1`] = `
       key="1"
     >
       <Styled(NavLink)
-        elementCount={2}
+        count={2}
         to="/favorites"
       >
         Favorites
@@ -32,7 +32,7 @@ exports[`MenuComponent should shallows correctly 1`] = `
       key="3"
     >
       <Styled(NavLink)
-        elementCount={3}
+        count={3}
         to="/contact"
       >
         Contact

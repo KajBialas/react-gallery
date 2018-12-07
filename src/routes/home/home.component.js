@@ -28,9 +28,6 @@ class HomeComponent extends PureComponent {
           <Description>
             This is react example gallery.
           </Description>
-          <TaskLink to="/cart">
-            <ArrowIcon/> Go to main part issue
-          </TaskLink>
         </Wrapper>
       </Fragment>
     );

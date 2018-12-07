@@ -1,7 +1,11 @@
-import { injectGlobal } from 'styled-components';
+import { injectGlobal, css } from 'styled-components';
 
 //Variables
-import { Color, FontSize } from './theme';
+import { Color, FontSize, Screen } from './theme';
+
+const MediumHtmlBodyStyle = css`
+  width: 100%;
+`;
 
 injectGlobal`
   html, body {
@@ -11,6 +15,8 @@ injectGlobal`
     font-size: ${FontSize.M};
     padding: 0;
     margin: 0;
+    
+    ${Screen.medium(MediumHtmlBodyStyle)}
   }
   
   a {

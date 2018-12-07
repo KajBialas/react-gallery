@@ -1,7 +1,7 @@
-import styled, { keyframes } from 'styled-components';
+import styled, { css, keyframes} from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
-import { Color, FontSize } from 'styles';
+import { Color, FontSize, Screen } from 'styles';
 
 const BackgroundAnimation = keyframes`
   0% { width: 0; }
@@ -34,6 +34,10 @@ export const StyledMenuOverlay = styled.div`
   }
 `;
 
+const MediumMenuContentStyle = css`
+  width: 100%;
+`;
+
 export const StyledMenuContent = styled.ul`
     display: flex;
     flex-direction: column;
@@ -49,11 +53,17 @@ export const StyledMenuContent = styled.ul`
     right: 0;
     width: 700px;
     z-index: 3;
+    
+    ${Screen.medium(MediumMenuContentStyle)}
 `;
 
 export const StyledMenuElement = styled.li``;
 
-const MenuItemAnimation = keyframes`
+const MediumMenuLinkStyle = css`
+  padding: 27px 40px;
+`;
+
+const MenuLinkAnimation = keyframes`
   0% { 
       margin-left: -2000px;
       opacity: 0; 
@@ -72,12 +82,15 @@ const MenuItemAnimation = keyframes`
 `;
 
 export const StyledMenuLink = styled(NavLink)`
-  animation: ${MenuItemAnimation} ${props => 1.2 + props.elementCount / 7}s ease-in-out forwards;
+  animation: ${MenuLinkAnimation} ${props => 1.2 + props.count / 7}s ease-in-out forwards;
+  box-sizing: border-box;
   color: ${Color.White};
   display: block;
   font-size: ${FontSize.XL};
   padding: 27px 0;
   width: 100%;
+  
+  ${Screen.medium(MediumMenuLinkStyle)}
   
   &:before{
     background-color: ${Color.White};

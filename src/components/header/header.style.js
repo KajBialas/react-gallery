@@ -13,7 +13,7 @@ export const Header = styled.header`
 export const LogoLink = styled(Link)`
   display: inline-block;
   font-size: 0;
-  margin: 17px 0;
+  margin: 17px 10px;
   
   svg {
     width: 160px;
