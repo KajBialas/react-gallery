@@ -1,42 +1,41 @@
 import { createActions, createReducer } from 'reduxsauce';
-import {Record, fromJS, Map} from 'immutable';
+import { Record, fromJS, List } from 'immutable';
 
 export const { Types: HomeTypes, Creators: HomeActions } = createActions({
-  albumsRequest: [''],
-  albumsRequestSuccess: [''],
-  albumsRequestFailure: [''],
+  dataRequest: [''],
+  dataRequestSuccess: ['data'],
+  dataRequestFailure: [''],
 }, { prefix: 'HOME_' });
 
 const HomeRecord = new Record({
-  albums: fromJS({
+  photos: fromJS({
     isLoading: false,
     isError: false,
-    records: Map(),
+    records: List(),
   })
 });
 
 export const INITIAL_STATE = new HomeRecord({});
 
-const albumsRequest = (state = INITIAL_STATE) => state
-  .setIn(['albums', 'isLoading'], true)
-  .setIn(['albums', 'isError'], false)
-  .setIn(['albums', 'records'], []);
+const dataRequest = (state = INITIAL_STATE) => state
+  .setIn(['photos', 'isLoading'], true)
+  .setIn(['photos', 'isError'], false)
+  .setIn(['photos', 'records'], []);
 
 
-const albumsRequestSuccess = (state = INITIAL_STATE,  records ) => {
-  console.log('albums reducer', records, fromJS(records));
+const dataRequestSuccess = (state = INITIAL_STATE,  { data } ) => {
   return state
-  .setIn(['albums', 'isLoading'], true)
-  .setIn(['albums', 'isError'], false)
-  .setIn(['albums', 'records'], fromJS(records[''].records))};
+  .setIn(['photos', 'isLoading'], false)
+  .setIn(['photos', 'isError'], false)
+  .setIn(['photos', 'records'], data)};
 
-const albumsRequestFailure = (state = INITIAL_STATE) => state
-  .setIn(['albums', 'isLoading'], false)
-  .setIn(['albums', 'isError'], true)
-  .setIn(['albums', 'records'], []);
+const dataRequestFailure = (state = INITIAL_STATE) => state
+  .setIn(['photos', 'isLoading'], false)
+  .setIn(['photos', 'isError'], true)
+  .setIn(['photos', 'records'], []);
 
 export const reducer = createReducer(INITIAL_STATE, {
-  [HomeTypes.ALBUMS_REQUEST]: albumsRequest,
-  [HomeTypes.ALBUMS_REQUEST_SUCCESS]: albumsRequestSuccess,
-  [HomeTypes.ALBUMS_REQUEST_FAILURE]: albumsRequestFailure,
+  [HomeTypes.DATA_REQUEST]: dataRequest,
+  [HomeTypes.DATA_REQUEST_SUCCESS]: dataRequestSuccess,
+  [HomeTypes.DATA_REQUEST_FAILURE]: dataRequestFailure,
 });
