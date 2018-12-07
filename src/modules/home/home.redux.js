@@ -1,5 +1,5 @@
 import { createActions, createReducer } from 'reduxsauce';
-import { Record, fromJS, Map, List } from 'immutable';
+import { Record, fromJS, List } from 'immutable';
 
 export const { Types: HomeTypes, Creators: HomeActions } = createActions({
   dataRequest: [''],
@@ -24,7 +24,6 @@ const dataRequest = (state = INITIAL_STATE) => state
 
 
 const dataRequestSuccess = (state = INITIAL_STATE,  { data } ) => {
-  console.log('albums reducer', data, fromJS(data));
   return state
   .setIn(['photos', 'isLoading'], false)
   .setIn(['photos', 'isError'], false)
