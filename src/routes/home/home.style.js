@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import * as RRD from 'react-router-dom';
+import Masonry from 'react-masonry-component';
+import { Col } from 'react-bootstrap';
 
 import { Color } from 'styles';
 
@@ -38,4 +40,26 @@ export const TaskLink = styled(RRD.Link)`
     height: 15px;
     fill: #fff;
   }
+`;
+
+
+
+export const GalleryMainWrapper = styled.div`
+  display: inline-block;
+  width:100%;
+`;
+
+export const GalleryWrapper = styled(Masonry)`
+  height:20000px`;
+
+export const GalleryItem = styled(Col)`
+  box-sizing: border-box;
+  display:inline-block;
+  padding: 10px;
+  width: 25%;
+`;
+
+export const GalleryImage = styled.img`
+  display: block;
+  width: 100%;
 `;
