@@ -1,6 +1,5 @@
 import { createActions, createReducer } from 'reduxsauce';
 import { Record, fromJS, List } from 'immutable';
-import { selectRecords } from "./home.selector";
 
 export const { Types: HomeTypes, Creators: HomeActions } = createActions({
   dataInit: [''],
@@ -13,7 +12,7 @@ const HomeRecord = new Record({
   photos: fromJS({
     isLoading: false,
     isError: false,
-    records: [''],
+    records: List(),
   })
 });
 

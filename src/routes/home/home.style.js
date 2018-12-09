@@ -1,11 +1,5 @@
 import styled from 'styled-components';
 import * as RRD from 'react-router-dom';
-import Masonry from 'react-masonry-component';
-import Image from "react-graceful-image";
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import { Col } from 'react-bootstrap';
-import PreloadImage from 'react-preload-image';
-
 
 import { Color } from 'styles';
 
@@ -44,32 +38,4 @@ export const TaskLink = styled(RRD.Link)`
     height: 15px;
     fill: #fff;
   }
-`;
-
-
-export const TempGallery = styled.div`
-  margin-left: -100000px;
-`;
-
-export const GalleryMainWrapper = styled.div`
-  display: inline-block;
-  width:100%;
-`;
-
-export const GalleryWrapper = styled(Masonry)`
-  overflow: hidden;
-`;
-
-export const GalleryItem = styled.div`
-  box-sizing: border-box;
-  display:inline-block;
-  margin: 10px;
-  width: calc(25% - 20px);
-  transition: left 300ms ease-in-out;
-`;
-
-export const GalleryImage = styled(PreloadImage)`
-  display: block;
-  width: 100%;
-  height: 200px;
 `;
