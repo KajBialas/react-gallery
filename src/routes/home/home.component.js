@@ -1,6 +1,7 @@
 import React, { PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Masonry from 'react-masonry-component';
+import Image from 'components/image/image.component';
 import ImageLoader from 'react-load-image';
 import InfiniteScroll from 'react-infinite-scroller';
 // Components
@@ -44,11 +45,7 @@ class HomeComponent extends PureComponent {
     const childElements = this.props.photosRecords.map(function(element){
       return (
         <GalleryItem>
-          <ImageLoader src={element}>
-            <GalleryImage/>
-            <div/>
-            <div/>
-          </ImageLoader>
+          <Image src={element} />
         </GalleryItem>
       );
     });
@@ -81,11 +78,11 @@ class HomeComponent extends PureComponent {
             hasMore={this.state.imagesLoaded}>
               <GalleryMainWrapper>
                 <GalleryWrapper
-                  isReadyDisplay={this.state.imagesLoaded}
+                  isReadyDisplay={this.state.imagesLoaded }
                   onImagesLoaded={this.handleImagesLoaded}
                   imagesLoadedOptions={imagesLoadedOptions}
                   options={masonryOptions}
-                  disableImagesLoaded={this.state.imagesLoaded} // default false
+                  disableImagesLoaded={this.state.imagesLoaded && this.props.photosRecords.length < 217} // default false
                   updateOnEachImageLoad={false} // default false and works only if disableImagesLoaded is false
                 >
                   {childElements}

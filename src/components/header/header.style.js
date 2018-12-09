@@ -8,6 +8,8 @@ import { Color } from 'styles';
 export const Header = styled.header`
   background: ${Color.White};
   padding: 20px 0;
+  position: relative;
+  z-index: 2;
 `;
 
 export const LogoLink = styled(Link)`
