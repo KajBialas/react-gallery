@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GalleryComponent should shallows correctly if records are empty 1`] = `
+<styled.div>
+  No result
+</styled.div>
+`;
+
+exports[`GalleryComponent should shallows correctly if records has data 1`] = `
+<styled.div>
+  <Styled(MasonryComponent)>
+    <styled.div
+      key="1.jpg"
+    >
+      <Styled(PreloadImage)
+        src="1.jpg"
+      />
+    </styled.div>
+    <styled.div
+      key="2.jpg"
+    >
+      <Styled(PreloadImage)
+        src="2.jpg"
+      />
+    </styled.div>
+  </Styled(MasonryComponent)>
+</styled.div>
+`;

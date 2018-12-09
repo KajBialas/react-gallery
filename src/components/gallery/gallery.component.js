@@ -1,26 +1,43 @@
 import React, { PureComponent } from "react";
-import {GalleryMainWrapper, GalleryWrapper, GalleryImage, GalleryItem} from "./gallery.style.js";
+import PropTypes from 'prop-types';
+
+// Styles
+import {
+  StyledGalleryMainWrapper,
+  StyledGalleryWrapper,
+  StyledGalleryImage,
+  StyledGalleryItem,
+  StyledDescription,
+} from "./gallery.style.js";
 
 class GalleryComponent extends PureComponent {
+  propTypes = {
+    photosRecords: PropTypes.array.isRequired,
+    handleImagesLoaded: PropTypes.func.isRequired,
+  };
 
-  renderGalleryItem = () => this.props.photosRecords.map((element) => {
-    return (
-      <GalleryItem>
-        <GalleryImage src={element} />
-      </GalleryItem>
+  static defaultProps = {
+    photosRecords: [],
+  };
+
+  renderGalleryItem = () => this.props.photosRecords.map((element) =>
+      <StyledGalleryItem key={element}>
+        <StyledGalleryImage src={element} />
+      </StyledGalleryItem>
     );
-  });
+
+  renderGallery = () => (
+    <StyledGalleryMainWrapper>
+      <StyledGalleryWrapper onImagesLoaded={this.props.handleImagesLoaded}>
+        {this.renderGalleryItem()}
+      </StyledGalleryWrapper>
+    </StyledGalleryMainWrapper>
+  );
+
+  renderEmptyInfo = () => <StyledDescription>No result</StyledDescription>;
 
   render() {
-    return (
-      <GalleryMainWrapper>
-        <GalleryWrapper
-          onImagesLoaded={this.props.handleImagesLoaded}
-        >
-          {this.renderGalleryItem()}
-        </GalleryWrapper>
-      </GalleryMainWrapper>
-    );
+    return this.props.photosRecords.length ? this.renderGallery() : this.renderEmptyInfo();
   }
 }
 
