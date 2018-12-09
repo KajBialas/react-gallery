@@ -1,12 +1,13 @@
 import React, { PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Masonry from 'react-masonry-component';
+import ImageLoader from 'react-load-image';
 import InfiniteScroll from 'react-infinite-scroller';
 // Components
 import Header from 'components/header/header.component';
 
 // Styles
-import { Description, TaskLink, GalleryMainWrapper, GalleryWrapper, GalleryImage, GalleryItem } from './home.style';
+import { Description, TempGallery, TaskLink, GalleryMainWrapper, GalleryWrapper, GalleryImage, GalleryItem } from './home.style';
 import { Wrapper } from 'styledElements';
 import { Grid, Row } from 'react-bootstrap';
 
@@ -15,9 +16,7 @@ import ArrowIcon from 'icons/arrow.icon';
 import IssueIcon from 'icons/issue.icon';
 
 
-const masonryOptions = {
-  transitionDuration: 0
-};
+
 
 
 class HomeComponent extends PureComponent {
@@ -27,32 +26,44 @@ class HomeComponent extends PureComponent {
 
   state = {
     imagesLoaded: false,
+    imagesSet: [],
   };
 
   componentDidMount(){
     console.log(this.props);
+    this.props.photosInit();
     this.props.photosRequest();
   }
 
-  handleImagesLoaded = () => this.setState((prevState) => {
-  return {imagesLoaded: !prevState.imagesLoaded};
+  handleImagesLoaded = (imagesLoadedInstance) => this.setState((prevState) => {
+    console.log('images loaded');
+  return {imagesLoaded: true};
 });
 
   render() {
     const childElements = this.props.photosRecords.map(function(element){
       return (
         <GalleryItem>
-          <GalleryImage  src={element} />
+          <ImageLoader src={element}>
+            <GalleryImage/>
+            <div/>
+            <div/>
+          </ImageLoader>
         </GalleryItem>
       );
     });
 
+
+
     const style = {
-      maxWidth:'25%',
-      display: 'inline-block',
+      background: 'red',
     };
 
-    const loader = <div className="loader">Loading ...</div>;
+    const imagesLoadedOptions = { background: style };
+    const masonryOptions = {
+      transitionDuration: 0
+    };
+
 
     return (
       <Fragment>
@@ -62,19 +73,19 @@ class HomeComponent extends PureComponent {
             This is react example gallery.
           </Description>
 
-          {/*{this.props.photosRecords.map((item) => <img src={item} />)}*/}
 
           {!this.props.isLoading && this.props.photosRecords.length ?
           <InfiniteScroll
             pageStart={0}
-            loadMore={() => console.log('more')}
-            hasMore={this.state.imagesLoaded}
-            loader={loader}>
+            loadMore={this.props.photosRequest}
+            hasMore={this.state.imagesLoaded}>
               <GalleryMainWrapper>
                 <GalleryWrapper
+                  isReadyDisplay={this.state.imagesLoaded}
                   onImagesLoaded={this.handleImagesLoaded}
-                  options={masonryOptions} // default {}
-                  disableImagesLoaded={false} // default false
+                  imagesLoadedOptions={imagesLoadedOptions}
+                  options={masonryOptions}
+                  disableImagesLoaded={this.state.imagesLoaded} // default false
                   updateOnEachImageLoad={false} // default false and works only if disableImagesLoaded is false
                 >
                   {childElements}
