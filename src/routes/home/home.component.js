@@ -31,7 +31,6 @@ class HomeComponent extends PureComponent {
   };
 
   componentDidMount(){
-    console.log(this.props);
     this.props.photosInit();
     this.props.photosRequest();
   }
@@ -45,7 +44,7 @@ class HomeComponent extends PureComponent {
     const childElements = this.props.photosRecords.map(function(element){
       return (
         <GalleryItem>
-          <Image src={element} />
+          <GalleryImage src={element} />
         </GalleryItem>
       );
     });

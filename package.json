@@ -51,6 +51,7 @@
     "react-lazy-load-image-component": "^1.1.5",
     "react-load-image": "^0.1.6",
     "react-masonry-component": "^6.2.1",
+    "react-preload-image": "^1.0.4",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
     "react-router-redux": "5.0.0-alpha.9",

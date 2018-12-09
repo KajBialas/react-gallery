@@ -4,6 +4,8 @@ import Masonry from 'react-masonry-component';
 import Image from "react-graceful-image";
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { Col } from 'react-bootstrap';
+import PreloadImage from 'react-preload-image';
+
 
 import { Color } from 'styles';
 
@@ -56,18 +58,18 @@ export const GalleryMainWrapper = styled.div`
 
 export const GalleryWrapper = styled(Masonry)`
   overflow: hidden;
-  margin-left: ${props => props.isReadyDisplay ? 0 : '-10000px'};
 `;
-export const GalleryItem = styled(Col)`
+
+export const GalleryItem = styled.div`
   box-sizing: border-box;
   display:inline-block;
-  padding: 10px;
-  width: 25%;
+  margin: 10px;
+  width: calc(25% - 20px);
   transition: left 300ms ease-in-out;
 `;
 
-export const GalleryImage = styled.img`
+export const GalleryImage = styled(PreloadImage)`
   display: block;
   width: 100%;
-  //transition: all 300ms ease-in-out;
+  height: 200px;
 `;

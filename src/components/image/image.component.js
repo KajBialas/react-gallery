@@ -1,5 +1,6 @@
 import React, { PureComponent, Fragment } from "react";
 import { StyledImage  } from "./image.style";
+import PreloadImage from 'react-preload-image';
 
 class ImageComponent extends PureComponent {
   state = {
@@ -12,9 +13,10 @@ class ImageComponent extends PureComponent {
     const { isVisible } = this.state;
 
     return (
-      <StyledImage isVisible={isVisible} >
-        <img onLoad={this.setVisible} src={this.props.src}/>
-      </StyledImage>
+
+        <StyledImage isVisible={isVisible} >
+          <PreloadImage src={this.props.src} lazy />
+        </StyledImage>
     );
   }
 }
