@@ -8,16 +8,18 @@ exports[`GalleryComponent should shallows correctly if records are empty 1`] = `
 
 exports[`GalleryComponent should shallows correctly if records has data 1`] = `
 <styled.div>
-  <Styled(MasonryComponent)>
+  <Styled(MasonryComponent)
+    onImagesLoaded={[Function]}
+  >
     <styled.div
-      key="1.jpg"
+      key="1.jpg0"
     >
       <Styled(PreloadImage)
         src="1.jpg"
       />
     </styled.div>
     <styled.div
-      key="2.jpg"
+      key="2.jpg1"
     >
       <Styled(PreloadImage)
         src="2.jpg"

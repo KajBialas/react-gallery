@@ -12,13 +12,23 @@ import { Wrapper } from 'styledElements';
 
 
 class HomeComponent extends PureComponent {
+  static propTypes = {
+    photosRecords: PropTypes.oneOfType([
+      PropTypes.object,
+      PropTypes.array,
+    ]).isRequired,
+    photosLoading: PropTypes.bool.isRequired,
+    photosError: PropTypes.bool.isRequired,
+    photosInit: PropTypes.func.isRequired,
+    photosRequest: PropTypes.func.isRequired,
+  };
+
   static defaultProps = {
     photosRecords: [],
   };
 
   state = {
     imagesLoaded: false,
-    imagesSet: [],
   };
 
   componentDidMount(){
@@ -29,6 +39,8 @@ class HomeComponent extends PureComponent {
   handleImagesLoaded = () => this.setState({ imagesLoaded: true });
 
   render() {
+    const { photosRecords, photosRequest } = this.props;
+    const { imagesLoaded } = this.state;
     return (
       <Fragment>
         <Header />
@@ -36,12 +48,12 @@ class HomeComponent extends PureComponent {
           <Description>
             This is react example gallery.
           </Description>
-          {!this.props.isLoading && this.props.photosRecords.length ?
+          {photosRecords.length ?
           <InfiniteScroll
             pageStart={0}
-            loadMore={this.props.photosRequest}
-            hasMore={this.state.imagesLoaded}>
-              <Gallery photosRecords={this.props.photosRecords} handleImagesLoaded={this.handleImagesLoaded} />
+            loadMore={photosRequest}
+            hasMore={imagesLoaded}>
+              <Gallery photosRecords={photosRecords} handleImagesLoaded={this.handleImagesLoaded} />
           </InfiniteScroll> : null }
         </Wrapper>
       </Fragment>

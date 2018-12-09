@@ -1,6 +1,58 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`HomeComponent should shallows correctly 1`] = `
+exports[`HomeComponent should shallows correctly if photosRecords has records 1`] = `
+<Fragment>
+  <HeaderComponent />
+  <styled.div>
+    <styled.div>
+      This is react example gallery.
+    </styled.div>
+    <InfiniteScroll
+      element="div"
+      getScrollParent={null}
+      hasMore={false}
+      initialLoad={true}
+      isReverse={false}
+      loadMore={
+        [MockFunction] {
+          "calls": Array [
+            Array [],
+            Array [],
+          ],
+          "results": Array [
+            Object {
+              "isThrow": false,
+              "value": undefined,
+            },
+            Object {
+              "isThrow": false,
+              "value": undefined,
+            },
+          ],
+        }
+      }
+      loader={null}
+      pageStart={0}
+      ref={null}
+      threshold={250}
+      useCapture={false}
+      useWindow={true}
+    >
+      <GalleryComponent
+        handleImagesLoaded={[Function]}
+        photosRecords={
+          Array [
+            "1.jpg",
+            "2.jpg",
+          ]
+        }
+      />
+    </InfiniteScroll>
+  </styled.div>
+</Fragment>
+`;
+
+exports[`HomeComponent should shallows correctly if photosRecords is empty 1`] = `
 <Fragment>
   <HeaderComponent />
   <styled.div>

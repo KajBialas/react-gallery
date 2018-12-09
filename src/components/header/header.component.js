@@ -4,7 +4,7 @@ import React, { PureComponent } from 'react';
 import Menu from 'components/menu/menu.component.js';
 
 // Styles
-import { Header, LogoLink, HamburgerButton } from './header.style';
+import { StyledHeader, StyledLogoLink, StyledHamburgerButton } from './header.style';
 import { Wrapper } from 'styledElements';
 
 // Icons
@@ -27,19 +27,19 @@ class HeaderComponent extends PureComponent {
     const { isMenuOpened } = this.state;
 
     return (
-      <Header>
+      <StyledHeader>
         <Wrapper>
-          <LogoLink to="/">
+          <StyledLogoLink to="/">
             <LogoIcon/>
-          </LogoLink>
-          <HamburgerButton isOpened={isMenuOpened} onClick={this.handleOpenMenu}>
+          </StyledLogoLink>
+          <StyledHamburgerButton isOpened={isMenuOpened} onClick={this.handleOpenMenu}>
             <span/>
             <span/>
             <span/>
-          </HamburgerButton>
+          </StyledHamburgerButton>
           {this.renderMenu()}
         </Wrapper>
-      </Header>
+      </StyledHeader>
     );
   }
 }

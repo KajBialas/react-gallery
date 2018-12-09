@@ -11,17 +11,18 @@ import {
 } from "./gallery.style.js";
 
 class GalleryComponent extends PureComponent {
-  propTypes = {
+  static propTypes = {
     photosRecords: PropTypes.array.isRequired,
     handleImagesLoaded: PropTypes.func.isRequired,
   };
 
   static defaultProps = {
     photosRecords: [],
+    handleImagesLoaded: () => {},
   };
 
-  renderGalleryItem = () => this.props.photosRecords.map((element) =>
-      <StyledGalleryItem key={element}>
+  renderGalleryItem = () => this.props.photosRecords.map((element, index) =>
+      <StyledGalleryItem key={element + index}>
         <StyledGalleryImage src={element} />
       </StyledGalleryItem>
     );
