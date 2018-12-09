@@ -36,8 +36,7 @@ class HomeComponent extends PureComponent {
   }
 
   handleImagesLoaded = (imagesLoadedInstance) => this.setState((prevState) => {
-    console.log('images loaded');
-  return {imagesLoaded: true};
+    return {imagesLoaded: true};
 });
 
   render() {
@@ -48,18 +47,6 @@ class HomeComponent extends PureComponent {
         </GalleryItem>
       );
     });
-
-
-
-    const style = {
-      background: 'red',
-    };
-
-    const imagesLoadedOptions = { background: style };
-    const masonryOptions = {
-      transitionDuration: 0
-    };
-
 
     return (
       <Fragment>
@@ -77,11 +64,8 @@ class HomeComponent extends PureComponent {
             hasMore={this.state.imagesLoaded}>
               <GalleryMainWrapper>
                 <GalleryWrapper
-                  isReadyDisplay={this.state.imagesLoaded }
                   onImagesLoaded={this.handleImagesLoaded}
-                  imagesLoadedOptions={imagesLoadedOptions}
-                  options={masonryOptions}
-                  disableImagesLoaded={this.state.imagesLoaded && this.props.photosRecords.length < 217} // default false
+                  disableImagesLoaded={this.state.imagesLoaded} // default false
                   updateOnEachImageLoad={false} // default false and works only if disableImagesLoaded is false
                 >
                   {childElements}
