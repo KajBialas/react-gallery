@@ -19,6 +19,7 @@ const mapStateToProps = createStructuredSelector({
 });
 
 export const mapDispatchToProps = (dispatch) => bindActionCreators({
+  photosInit: HomeActions.dataInit,
   photosRequest: HomeActions.dataRequest,
 }, dispatch);
 

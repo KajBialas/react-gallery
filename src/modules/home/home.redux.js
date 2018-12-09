@@ -2,6 +2,7 @@ import { createActions, createReducer } from 'reduxsauce';
 import { Record, fromJS, List } from 'immutable';
 
 export const { Types: HomeTypes, Creators: HomeActions } = createActions({
+  dataInit: [''],
   dataRequest: [''],
   dataRequestSuccess: ['data'],
   dataRequestFailure: [''],
@@ -17,24 +18,37 @@ const HomeRecord = new Record({
 
 export const INITIAL_STATE = new HomeRecord({});
 
-const dataRequest = (state = INITIAL_STATE) => state
-  .setIn(['photos', 'isLoading'], true)
+const dataInit = (state = INITIAL_STATE) => state
+  .setIn(['photos', 'isLoading'], false)
   .setIn(['photos', 'isError'], false)
   .setIn(['photos', 'records'], []);
 
 
-const dataRequestSuccess = (state = INITIAL_STATE,  { data } ) => {
+const dataRequest = state => state
+  .setIn(['photos', 'isLoading'], true)
+  .setIn(['photos', 'isError'], false);
+
+const getCurrentRecords = state => state.getIn(['photos', 'records']);
+
+const dataRequestSuccess = (state,  { data } ) => {
+  const records = getCurrentRecords(state).concat(data);
+
   return state
   .setIn(['photos', 'isLoading'], false)
   .setIn(['photos', 'isError'], false)
-  .setIn(['photos', 'records'], data)};
+  .setIn(['photos', 'records'], records)};
 
-const dataRequestFailure = (state = INITIAL_STATE) => state
-  .setIn(['photos', 'isLoading'], false)
-  .setIn(['photos', 'isError'], true)
-  .setIn(['photos', 'records'], []);
+const dataRequestFailure = state => {
+  const records = getCurrentRecords(state);
+
+  return state
+    .setIn(['photos', 'isLoading'], false)
+    .setIn(['photos', 'isError'], true)
+    .setIn(['photos', 'records'], records)
+};
 
 export const reducer = createReducer(INITIAL_STATE, {
+  [HomeTypes.DATA_INIT]: dataInit,
   [HomeTypes.DATA_REQUEST]: dataRequest,
   [HomeTypes.DATA_REQUEST_SUCCESS]: dataRequestSuccess,
   [HomeTypes.DATA_REQUEST_FAILURE]: dataRequestFailure,

@@ -5,12 +5,14 @@ import { ifElse, prop, always } from 'ramda';
 
 import { Color } from 'styles';
 
-export const Header = styled.header`
+export const StyledHeader = styled.header`
   background: ${Color.White};
   padding: 20px 0;
+  position: relative;
+  z-index: 2;
 `;
 
-export const LogoLink = styled(Link)`
+export const StyledLogoLink = styled(Link)`
   display: inline-block;
   font-size: 0;
   margin: 17px 10px;
@@ -51,7 +53,7 @@ const HamburgerButtonBackground = ifElse(
   always(Color.Black),
 );
 
-export const HamburgerButton = styled.div`
+export const StyledHamburgerButton = styled.div`
   cursor: pointer;
   float: right;
   height: 21px;

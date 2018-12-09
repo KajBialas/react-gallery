@@ -1,28 +1,46 @@
 import React, { PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
+import InfiniteScroll from 'react-infinite-scroller';
 
 // Components
 import Header from 'components/header/header.component';
+import Gallery from 'components/gallery/gallery.component';
 
 // Styles
-import { Description, TaskLink } from './home.style';
+import { Description } from './home.style';
 import { Wrapper } from 'styledElements';
 
-// Icons
-import ArrowIcon from 'icons/arrow.icon';
-import IssueIcon from 'icons/issue.icon';
 
 class HomeComponent extends PureComponent {
+  static propTypes = {
+    photosRecords: PropTypes.oneOfType([
+      PropTypes.object,
+      PropTypes.array,
+    ]).isRequired,
+    photosLoading: PropTypes.bool.isRequired,
+    photosError: PropTypes.bool.isRequired,
+    photosInit: PropTypes.func.isRequired,
+    photosRequest: PropTypes.func.isRequired,
+  };
+
   static defaultProps = {
     photosRecords: [],
   };
 
+  state = {
+    imagesLoaded: false,
+  };
+
   componentDidMount(){
-    console.log(this.props);
+    this.props.photosInit();
     this.props.photosRequest();
   }
 
+  handleImagesLoaded = () => this.setState({ imagesLoaded: true });
+
   render() {
+    const { photosRecords, photosRequest } = this.props;
+    const { imagesLoaded } = this.state;
     return (
       <Fragment>
         <Header />
@@ -30,9 +48,13 @@ class HomeComponent extends PureComponent {
           <Description>
             This is react example gallery.
           </Description>
-
-          {this.props.photosRecords.map((item) => <img src={item} />)}
-
+          {photosRecords.length ?
+          <InfiniteScroll
+            pageStart={0}
+            loadMore={photosRequest}
+            hasMore={imagesLoaded}>
+              <Gallery photosRecords={photosRecords} handleImagesLoaded={this.handleImagesLoaded} />
+          </InfiniteScroll> : null }
         </Wrapper>
       </Fragment>
     );
