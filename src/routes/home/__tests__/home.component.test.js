@@ -7,6 +7,7 @@ describe('HomeComponent', () => {
     photosRecords: [],
     photosLoading: false,
     photosError: false,
+    photosInit: jest.fn(),
     photosRequest: jest.fn(),
   };
   it('should shallows correctly', () => {

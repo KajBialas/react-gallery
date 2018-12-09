@@ -38,10 +38,14 @@ const dataRequestSuccess = (state,  { data } ) => {
   .setIn(['photos', 'isError'], false)
   .setIn(['photos', 'records'], records)};
 
-const dataRequestFailure = state => state
-  .setIn(['photos', 'isLoading'], false)
-  .setIn(['photos', 'isError'], true)
-  .setIn(['photos', 'records'], []);
+const dataRequestFailure = state => {
+  const records = getCurrentRecords(state);
+
+  return state
+    .setIn(['photos', 'isLoading'], false)
+    .setIn(['photos', 'isError'], true)
+    .setIn(['photos', 'records'], records)
+};
 
 export const reducer = createReducer(INITIAL_STATE, {
   [HomeTypes.DATA_INIT]: dataInit,
