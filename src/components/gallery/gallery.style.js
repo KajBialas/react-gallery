@@ -1,6 +1,9 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import Masonry from "react-masonry-component";
 import PreloadImage from "react-preload-image";
+
+import { Screen } from 'styles';
+
 
 export const StyledGalleryMainWrapper = styled.div`
   display: inline-block;
@@ -11,11 +14,17 @@ export const StyledGalleryWrapper = styled(Masonry)`
   overflow: hidden;
 `;
 
+const SmallGalleryItemStyle = css`
+  width: calc(50% - 20px);
+`;
+
 export const StyledGalleryItem = styled.div`
   display:inline-block;
   margin: 10px;
   transition: left 300ms ease-in-out;
   width: calc(25% - 20px);
+  
+  ${Screen.small(SmallGalleryItemStyle)}
 `;
 
 export const StyledGalleryImage = styled(PreloadImage)`
