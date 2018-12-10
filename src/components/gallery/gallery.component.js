@@ -8,7 +8,11 @@ import {
   StyledGalleryImage,
   StyledGalleryItem,
   StyledDescription,
+  StyledGalleryItemOverlay,
 } from "./gallery.style.js";
+
+// Icons
+import HeartIcon from 'icons/heart.icon';
 
 class GalleryComponent extends PureComponent {
   static propTypes = {
@@ -23,7 +27,11 @@ class GalleryComponent extends PureComponent {
 
   renderGalleryItem = () => this.props.photosRecords.map((element, index) =>
       <StyledGalleryItem key={element + index}>
-        <StyledGalleryImage src={element} />
+        <StyledGalleryImage src={element}>
+        </StyledGalleryImage>
+        <StyledGalleryItemOverlay>
+          <HeartIcon />
+        </StyledGalleryItemOverlay>
       </StyledGalleryItem>
     );
 
