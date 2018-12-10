@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { fromJS, Record, List } from 'immutable';
+import { fromJS, Record } from 'immutable';
 
 import {
   selectRecords,
