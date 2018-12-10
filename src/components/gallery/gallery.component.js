@@ -9,6 +9,7 @@ import {
   StyledGalleryItem,
   StyledDescription,
   StyledGalleryItemOverlay,
+  StyledIcon,
 } from "./gallery.style.js";
 
 // Icons
@@ -17,12 +18,39 @@ import HeartIcon from 'icons/heart.icon';
 class GalleryComponent extends PureComponent {
   static propTypes = {
     photosRecords: PropTypes.array.isRequired,
+    favouritesRecords: PropTypes.oneOfType([
+      PropTypes.object,
+      PropTypes.array,
+    ]).isRequired,
     handleImagesLoaded: PropTypes.func.isRequired,
+    addFavourite: PropTypes.func.isRequired,
+    removeFavourite: PropTypes.func.isRequired,
   };
 
   static defaultProps = {
     photosRecords: [],
+    favouritesRecords: [],
     handleImagesLoaded: () => {},
+    addFavourite: () => {},
+    removeFavourite: () => {},
+  };
+
+  renderGalleryItemButton = (element) => {
+    const { favouritesRecords } = this.props;
+
+    if(favouritesRecords.includes(element)) {
+      return (
+        <StyledIcon remove onClick={() => this.props.removeFavourite(element)}>
+          <HeartIcon/>
+        </StyledIcon>
+      );
+    }
+
+    return (
+      <StyledIcon add onClick={() => this.props.addFavourite(element)}>
+        <HeartIcon/>
+      </StyledIcon>
+    );
   };
 
   renderGalleryItem = () => this.props.photosRecords.map((element, index) =>
@@ -30,7 +58,7 @@ class GalleryComponent extends PureComponent {
         <StyledGalleryImage src={element}>
         </StyledGalleryImage>
         <StyledGalleryItemOverlay>
-          <HeartIcon />
+          {this.renderGalleryItemButton(element)}
         </StyledGalleryItemOverlay>
       </StyledGalleryItem>
     );

@@ -14,13 +14,6 @@ const FavouriteRecord = new Record({
 
 export const INITIAL_STATE = new FavouriteRecord({});
 
-// const dataInit = (state = INITIAL_STATE) => state
-//   .setIn(['photos', 'isLoading'], false)
-//   .setIn(['photos', 'isError'], false)
-//   .setIn(['photos', 'records'], []);
-
-
-
 const getCurrentRecords = state => state.getIn(['favourites', 'records']);
 
 const addFavourite = (state,  { data } ) => {

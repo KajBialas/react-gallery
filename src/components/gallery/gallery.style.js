@@ -30,17 +30,24 @@ export const StyledGalleryItemOverlay = styled.div`
   top: 0;
   transition: opacity 300ms ease-in-out;
   opacity: 0;
+`;
+
+export const StyledIcon = styled.div`
+  cursor: pointer;
+  display: inline-block;
+  transition: opacity 300ms ease-in-out;
   
+  &:hover {
+    opacity: 0.7;
+  }
+    
   svg {
     display: block;
-    fill: ${Color.White};
+    fill: ${props => props.add ? Color.White : Color.Red};
     height: 50px;
     width: 50px;
     
-    &:hover {
-      cursor: pointer;
-      fill: ${Color.Red};
-    }
+    
   }
 `;
 

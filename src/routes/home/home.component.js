@@ -17,10 +17,16 @@ class HomeComponent extends PureComponent {
       PropTypes.object,
       PropTypes.array,
     ]).isRequired,
+    favouritesRecords: PropTypes.oneOfType([
+      PropTypes.object,
+      PropTypes.array,
+    ]).isRequired,
     photosLoading: PropTypes.bool.isRequired,
     photosError: PropTypes.bool.isRequired,
     photosInit: PropTypes.func.isRequired,
     photosRequest: PropTypes.func.isRequired,
+    addFavourite: PropTypes.func.isRequired,
+    removeFavourite: PropTypes.func.isRequired,
   };
 
   static defaultProps = {
@@ -41,7 +47,7 @@ class HomeComponent extends PureComponent {
   handleImagesLoaded = () => this.setState({ imagesLoaded: true });
 
   render() {
-    const { photosRecords, photosRequest } = this.props;
+    const { photosRecords, photosRequest, favouritesRecords, addFavourite, removeFavourite } = this.props;
     const { imagesLoaded } = this.state;
     return (
       <Fragment>
@@ -55,7 +61,13 @@ class HomeComponent extends PureComponent {
             pageStart={0}
             loadMore={photosRequest}
             hasMore={imagesLoaded}>
-              <Gallery photosRecords={photosRecords} handleImagesLoaded={this.handleImagesLoaded} />
+              <Gallery
+                photosRecords={photosRecords}
+                handleImagesLoaded={this.handleImagesLoaded}
+                favouritesRecords={favouritesRecords}
+                addFavourite={addFavourite}
+                removeFavourite={removeFavourite}
+              />
           </InfiniteScroll> : null }
         </Wrapper>
       </Fragment>

@@ -18,7 +18,12 @@ exports[`GalleryComponent should shallows correctly if records has data 1`] = `
         src="1.jpg"
       />
       <styled.div>
-        <heartIcon />
+        <styled.div
+          add={true}
+          onClick={[Function]}
+        >
+          <heartIcon />
+        </styled.div>
       </styled.div>
     </styled.div>
     <styled.div
@@ -28,7 +33,12 @@ exports[`GalleryComponent should shallows correctly if records has data 1`] = `
         src="2.jpg"
       />
       <styled.div>
-        <heartIcon />
+        <styled.div
+          add={true}
+          onClick={[Function]}
+        >
+          <heartIcon />
+        </styled.div>
       </styled.div>
     </styled.div>
   </Styled(MasonryComponent)>
