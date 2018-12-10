@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { Record, fromJS, List } from 'immutable';
+import { Record, fromJS } from 'immutable';
 
 import { reducer, HomeActions } from '../home.redux';
 
