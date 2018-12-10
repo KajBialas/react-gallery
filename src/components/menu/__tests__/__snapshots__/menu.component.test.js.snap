@@ -23,9 +23,9 @@ exports[`MenuComponent should shallows correctly 1`] = `
     >
       <Styled(NavLink)
         count={2}
-        to="/favorites"
+        to="/favourites"
       >
-        Favorites
+        Favourites
       </Styled(NavLink)>
     </styled.li>
     <styled.li

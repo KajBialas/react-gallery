@@ -9,8 +9,8 @@ const NAVIGATION_ITEMS = [
   },
   {
     id: 1,
-    name: 'Favorites',
-    url: '/favorites',
+    name: 'Favourites',
+    url: '/favourites',
   },
   {
     id: 3,

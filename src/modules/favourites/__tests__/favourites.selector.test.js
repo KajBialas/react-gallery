@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { fromJS, Record } from 'immutable';
+import { fromJS, List, Record } from 'immutable';
 
 import {
   selectFavourites,
@@ -8,7 +8,7 @@ import {
 describe('Favourites: selectors', () => {
   const FavouritesRecord = new Record({
     favourites: fromJS({
-      records: [],
+      records: List(),
     })
   });
 
@@ -17,12 +17,10 @@ describe('Favourites: selectors', () => {
   });
 
   describe('selectFavourites', () => {
-    const items = ['1.jpg', '2.jpg'];
-
-    const state = initialState.setIn(['favourites', 'favourites', 'records'], items);
+    const state = initialState.setIn(['favourites', 'favourites', 'records'], List());
 
     it('should select records', () => {
-      expect(selectFavourites(state)).to.deep.equal(items);
+      expect(selectFavourites(state)).to.deep.equal([]);
     });
   });
 });

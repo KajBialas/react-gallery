@@ -4,5 +4,5 @@ const selectFavouriteDomain = state => state.get('favourites');
 
 export const selectFavourites = createSelector(
   selectFavouriteDomain,
-  state => state.getIn(['favourites', 'records']),
+  state => state.getIn(['favourites', 'records']).toArray(),
 );

@@ -24,7 +24,7 @@ const addFavourite = (state,  { data } ) => {
 
 const removeFavourite = (state,  { data } ) => {
   const records = getCurrentRecords(state);
-  const filteredRecords = records.filter(e => e !== data)
+  const filteredRecords = records.filter(e => e !== data);
 
   return state
     .setIn(['favourites', 'records'], filteredRecords)};

@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FavouritesComponent should shallows correctly 1`] = `
+<Fragment>
+  <HeaderComponent />
+  <styled.div>
+    <styled.div>
+      My 
+      <span>
+        favourites images
+      </span>
+    </styled.div>
+    <GalleryComponent
+      addFavourite={[Function]}
+      favouritesRecords={Array []}
+      handleImagesLoaded={[Function]}
+      photosRecords={Array []}
+      removeFavourite={[Function]}
+    />
+  </styled.div>
+</Fragment>
+`;

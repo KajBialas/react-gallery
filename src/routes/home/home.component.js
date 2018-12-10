@@ -31,6 +31,7 @@ class HomeComponent extends PureComponent {
 
   static defaultProps = {
     photosRecords: [],
+    favouritesRecords: [],
   };
 
   state = {
@@ -40,8 +41,6 @@ class HomeComponent extends PureComponent {
   componentDidMount(){
     this.props.photosInit();
     this.props.photosRequest();
-
-    console.log(this.props);
   }
 
   handleImagesLoaded = () => this.setState({ imagesLoaded: true });
