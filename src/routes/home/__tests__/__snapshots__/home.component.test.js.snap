@@ -39,6 +39,8 @@ exports[`HomeComponent should shallows correctly if photosRecords has records 1`
       useWindow={true}
     >
       <GalleryComponent
+        addFavourite={[Function]}
+        favouritesRecords={Array []}
         handleImagesLoaded={[Function]}
         photosRecords={
           Array [
@@ -46,6 +48,7 @@ exports[`HomeComponent should shallows correctly if photosRecords has records 1`
             "2.jpg",
           ]
         }
+        removeFavourite={[Function]}
       />
     </InfiniteScroll>
   </styled.div>

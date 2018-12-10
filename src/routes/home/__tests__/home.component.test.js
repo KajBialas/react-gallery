@@ -5,10 +5,13 @@ import HomeComponent from '../home.component';
 describe('HomeComponent', () => {
   const defaultProps = {
     photosRecords: [],
+    favouritesRecords: [],
     photosLoading: false,
     photosError: false,
     photosInit: jest.fn(),
     photosRequest: jest.fn(),
+    favouriteAdd: jest.fn(),
+    favouriteRemove: jest.fn(),
   };
   it('should shallows correctly if photosRecords is empty', () => {
     const component = shallow(<HomeComponent {...defaultProps} />);
