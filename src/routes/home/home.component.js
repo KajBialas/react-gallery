@@ -7,7 +7,7 @@ import Header from 'components/header/header.component';
 import Gallery from 'components/gallery/gallery.component';
 
 // Styles
-import { Description } from './home.style';
+import { StyledDescription } from './home.style';
 import { Wrapper } from 'styledElements';
 
 
@@ -45,9 +45,9 @@ class HomeComponent extends PureComponent {
       <Fragment>
         <Header />
         <Wrapper>
-          <Description>
+          <StyledDescription>
             This is react example gallery.
-          </Description>
+          </StyledDescription>
           {photosRecords.length ?
           <InfiniteScroll
             pageStart={0}
