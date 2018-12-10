@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ContactComponent should shallows correctly 1`] = `
+<Fragment>
+  <HeaderComponent />
+  <styled.div>
+    <styled.div>
+      My email: 
+      <span>
+        kaj.bialas@gmail.com
+      </span>
+    </styled.div>
+  </styled.div>
+</Fragment>
+`;
